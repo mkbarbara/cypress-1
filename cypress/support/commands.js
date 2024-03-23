@@ -11,18 +11,24 @@
 //
 // -- This is a parent command --
 Cypress.Commands.add("login", (login, password) => {
-    cy.contains('Log in').click();
-  
-    if (login !== "") {
-      cy.get("#mail").type(login);
-    }
-  
-    if (password !== "") {
-      cy.get("#pass").type(password);
-    }
-  
-    cy.contains("Submit").click();
-  });
+  cy.contains('Log in').click();
+
+  if (login !== "") {
+    cy.get("#mail").type(login);
+  }
+
+  if (password !== "") {
+    cy.get("#pass").type(password);
+  }
+
+  cy.contains("Submit").click();
+});
+
+Cypress.Commands.add("addbook", () => {
+  cy.contains('Add new').click();
+  cy.get("#title").type("Title");
+  cy.contains("Submit").click();
+});
 //
 //
 // -- This is a child command --
